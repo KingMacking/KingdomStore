@@ -1,0 +1,122 @@
+@import "../misc/Variables.scss";
+@import "../misc/Mixins.scss";
+
+#header {
+    height: 10em;
+    .navbar {
+        height: 100%;
+        background-color: $base;
+        color: $primary;
+        font-size: 2.2em;
+        padding: 0;
+        .container-fluid {
+            height: 100%;
+            .navbar-brand{
+                width: 5%;
+            }
+            .navbar-toggler{
+                color: $primary;
+            }
+            .navbar-buttons{
+                height: 100%;
+                width: 40rem;
+                flex-grow: unset;
+                .navbar-nav{
+                    height: 100%;
+                    width: 100%;
+                    @include flex(default, space-between, default, default);
+                    .nav-item{
+                        height: 100%;
+                        width: 25%;
+                        position: unset;
+                        @include flex (default, center, center, default);
+                        .nav-link{
+                            @include flex (default, center, center, default);
+                            color: $primary;
+                            font-size: $font-base;
+                            width: 100%;
+                            height: 100%;
+                            transition: all 150ms ease-in;
+                            iconify-icon {
+                                margin-right: 0.5rem;
+                                font-size: $font-medium;
+                            }
+                        }
+                        &:hover{
+                            border-bottom: $secondary 3px solid;
+                            transition: all 150ms ease-in-out;
+                            .nav-link {
+                                color: $secondary;
+                                transition: all 150ms ease-in;
+                            }
+                        }
+                        .dropdown-menu {
+                            position: absolute;
+                            top: 7rem;
+                            left: 50%;
+                            width: 40rem;
+                            transform: translate(-49%);
+                            background-color: #1b1725ca;
+                            backdrop-filter: blur(3px);
+                            padding: 2rem;
+                            border-radius: 2rem;
+                            .dropdown-submenu{
+                                .dropdown-title{
+                                    width: 100%;
+                                    background-color: $base;
+                                    font-size: $font-titles;
+                                    font-family: $font-principal;
+                                    font-weight: bold;
+                                    padding: 0.4rem 1rem;
+                                    border-radius: 1rem;
+                                    color: $primary;
+                                }
+                                .dropdown-items{
+                                    padding: 1rem 0;
+                                    @include flex(default, space-evenly, default, wrap);
+                                    height: auto;
+                                    .dropdown-item{
+                                        @include flex(default, default, center, default);
+                                        width: 33%;
+                                        color: $primary;
+                                        font-size: $font-base;
+                                        font-family: $font-text;
+                                        margin-bottom: 0.7rem;
+                                        padding: 0.7rem 0.6rem;
+                                        border-radius: 1rem;
+                                        transition: all 150ms ease-in;
+                                        iconify-icon {
+                                            margin-right: 0.8rem;
+                                            font-size: $font-medium;
+                                        }
+                                        &:hover{
+                                            background-color: $base;
+                                            color: $secondary;
+                                            transition: all 150ms ease-in;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .cart-widget {
+                width: 5%;
+                @include flex (default, center, center, default);
+                iconify-icon{
+                    padding: 0.7em;
+                    border-radius: 50%;
+                    border: $secondary solid 2px;
+                    transition: all 150ms ease-in;
+                    &:hover{
+                        cursor: pointer;
+                        background-color: $secondary;
+                        border: none;
+                        transition: all 150ms ease-in;
+                    }
+                }
+            }
+        }
+    }
+}
