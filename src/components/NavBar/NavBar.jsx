@@ -1,8 +1,8 @@
 import React from "react";
 import { CartWidget } from "./CartWidget";
-import "./sass/partials/Header.scss"
+import "../sass/partials/Header.scss"
 export const Navbar = () => {
-    return (<>
+    return (
         <header id="header" class="w-100">
             <nav className="navbar">
                 <div className="container-fluid">
@@ -78,5 +78,5 @@ export const Navbar = () => {
                 </div>
             </nav>
         </header>
-    </>);
+    );
 };

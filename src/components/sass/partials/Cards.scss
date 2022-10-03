@@ -1,0 +1,66 @@
+@import "../misc/Variables.scss";
+@import "../misc/Mixins.scss";
+
+.card {
+    width: 17rem;
+    height: 27rem;
+    padding: 0;
+    border-radius: 1.7rem;
+    border: none;
+    background-color: $base;
+    overflow: hidden;
+    img{
+        border-radius: 0;
+        border: none;
+    }
+    &-body{
+        text-align: start;
+        color: $primary;
+        @include flex(column, space-between, default, default);
+        .card-platforms{
+            .card-title {
+                font-family:$font-principal ;
+                font-size: $font-medium;
+            }
+            &-icons{
+                background-color: #110e17;
+                border-radius: 0.7rem;
+                padding: 0.2rem 0.5rem;
+                width: max-content;
+                iconify-icon{
+                    font-size: $font-base;
+                    margin: 0 0.35rem;
+                }
+            }
+        }
+        .card-information {
+            font-family: $font-text;
+            font-size: $font-medium;
+            @include flex(default, space-between, default, default);
+            .card-price {
+                text-decoration: line-through;
+                opacity: 70%;
+                margin-right: 0.5rem;
+            }
+            .card-discount {
+                background-color: $secondary;
+                width: 5rem;
+                text-align: center;
+                border-radius: 0.7rem;
+            }
+        }
+        .card-btn {
+            background-color: transparent;
+            color: $secondary;
+            border: $secondary 2px solid;
+            transition: all 150ms ease-in;
+            width: 65%;
+            font-family: $font-principal;
+            &:hover{
+                color: $primary;
+                background-color: $secondary;
+                transition: all 150ms ease-in;
+            }
+        }
+    }
+}
