@@ -3,7 +3,7 @@ import "./sass/partials/Cards.scss"
 
 export const ItemCard = (props) => {
     return (
-        <div className="card" key={props.id}>
+        <div className="card">
             <img src={props.img} className="card-img-top" alt="..."/>
             <div className="card-body">
                 <div className="card-platforms">
