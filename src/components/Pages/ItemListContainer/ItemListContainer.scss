@@ -1,0 +1,7 @@
+@import "../../sass/misc/Mixins.scss";
+@import "../../sass/misc/Variables.scss";
+
+.games-cards {
+    @include flex(default, space-evenly, default, wrap);
+    height: 100%;
+}

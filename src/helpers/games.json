@@ -3,7 +3,7 @@
         "id":1,
         "name": "Cyberpunk 2077",
         "price": 50,
-        "sale": 10,
+        "sale": 0,
         "stock": 25,
         "img": "https://media.rawg.io/media/games/26d/26d4437715bee60138dab4a7c8c59c92.jpg",
         "platforms":[

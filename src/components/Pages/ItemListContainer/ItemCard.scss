@@ -1,5 +1,5 @@
-@import "../misc/Variables.scss";
-@import "../misc/Mixins.scss";
+@import "../../sass/misc/Variables.scss";
+@import "../../sass/misc/Mixins.scss";
 
 .card {
     width: 17rem;
@@ -12,6 +12,8 @@
     img{
         border-radius: 0;
         border: none;
+        min-height: 10rem;
+        height: auto;
     }
     &-body{
         text-align: start;
@@ -38,9 +40,11 @@
             font-size: $font-medium;
             @include flex(default, space-between, default, default);
             .card-price {
+                margin-right: 0.5rem;
+            }
+            .in-sale {
                 text-decoration: line-through;
                 opacity: 70%;
-                margin-right: 0.5rem;
             }
             .card-discount {
                 background-color: $secondary;

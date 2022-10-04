@@ -1,0 +1,66 @@
+@import "../../sass/misc/Variables.scss";
+@import "../../sass/misc/Mixins.scss";
+
+.item-detail{
+    width: 70%;
+    height: 80%;
+    padding: 2rem;
+    border-radius: 3rem;
+    background-color: $base;
+    color: $primary;
+    @include flex(default, space-between, center, default);
+    &-info {
+        @include flex(column, space-between, default, wrap);
+        width: 70%;
+        margin-right: 5rem;
+        .item-detail-img {
+            width: 100%;
+            border-radius: 2.4rem;
+            margin-bottom: 1rem;
+        }
+        .item-detail-name {
+            text-align: start;
+            font-size: $font-big-titles;
+            font-family: $font-principal;
+        }
+        .item-detail-price{
+            font-family: $font-text;
+            font-size: $font-titles;
+            @include flex(default, space-between, default, default);
+            .item-price {
+                margin-right: 0.5rem;
+            }
+            .in-sale {
+                text-decoration: line-through;
+                opacity: 70%;
+            }
+            .item-discount {
+                background-color: $secondary;
+                width: 5rem;
+                text-align: center;
+                border-radius: 0.7rem;
+            }
+        }
+    }
+    &-buy {
+        @include flex(column, space-between, center, wrap);
+        border: 2px $primary solid;
+        border-radius: 2.4rem;
+        width: 30%;
+        height: 30rem;
+        padding: 1rem;
+        .btn {
+            background-color: transparent;
+            color: $secondary;
+            border: $secondary 2px solid;
+            transition: all 150ms ease-in;
+            width: 65%;
+            font-family: $font-principal;
+            &:hover{
+                color: $primary;
+                background-color: $secondary;
+                transition: all 150ms ease-in;
+            }
+        }
+    }
+}

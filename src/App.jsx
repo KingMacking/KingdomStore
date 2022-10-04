@@ -1,15 +1,15 @@
 import React from 'react';
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import { Navbar } from './components/NavBar/NavBar';
-import { ItemListContainer } from './components/ItemListContainer';
+import { ItemListContainer } from './components/Pages/ItemListContainer/ItemListContainer';
+import { ItemDetailContainer } from './components/Pages/ItemDetailContainer/ItemDetailContainer';
 import './App.css';
 
 function App() {
   return (
     <>
     <Navbar/>
-    <ItemListContainer/>
+    {/* <ItemListContainer/> */}
+    <ItemDetailContainer/>
     </>
   )
 }

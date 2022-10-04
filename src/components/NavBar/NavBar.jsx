@@ -1,9 +1,9 @@
 import React from "react";
 import { CartWidget } from "./CartWidget";
-import "../sass/partials/Header.scss"
+import "./NavBar.scss"
 export const Navbar = () => {
     return (
-        <header id="header" class="w-100">
+        <header id="header">
             <nav className="navbar">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">LOGO</a>
