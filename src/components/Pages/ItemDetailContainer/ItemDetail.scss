@@ -8,6 +8,7 @@
     border-radius: 3rem;
     background-color: $base;
     color: $primary;
+    box-shadow: 9px 6px 9px 0px rgba(0,0,0,0.4);
     @include flex(default, space-between, center, default);
     &-info {
         @include flex(column, space-between, default, wrap);
@@ -43,11 +44,11 @@
         }
     }
     &-buy {
-        @include flex(column, space-between, center, wrap);
+        // @include flex(column, space-between, center, wrap);
         border: 2px $primary solid;
         border-radius: 2.4rem;
         width: 30%;
-        height: 30rem;
+        height: 100%;
         padding: 1rem;
         .btn {
             background-color: transparent;

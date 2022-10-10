@@ -9,13 +9,6 @@
         "platforms":[
             {
                 "platform": {
-                    "id": 4,
-                    "name": "PC",
-                    "slug": "pc"
-                }
-            },
-            {
-                "platform": {
                     "id": 187,
                     "name": "PlayStation 5",
                     "slug": "playstation5"

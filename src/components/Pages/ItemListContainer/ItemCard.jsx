@@ -4,7 +4,7 @@ import "./ItemCard.scss"
 export const ItemCard = (props) => {
     const getPlatform = (platform) => {
         return props.game.platforms.find((plat)=>{
-            return plat.platform.slug === platform
+            return plat.platform.slug.includes(platform)
         })
     }
     return (
@@ -15,8 +15,8 @@ export const ItemCard = (props) => {
                     <h2 className="card-title">{props.game.name}</h2>
                     <div className="card-platforms-icons">
                         {getPlatform("pc") && <iconify-icon inline icon="ic:round-monitor"></iconify-icon>}
-                        {((getPlatform("playstation4")) || (getPlatform("playstation5"))) && <iconify-icon inline icon="bi:playstation"></iconify-icon>}
-                        {((getPlatform("xbox-one")) || (getPlatform("xbox-series-x"))) && <iconify-icon inline icon="bi:xbox"></iconify-icon>}
+                        {getPlatform("playstation") && <iconify-icon inline icon="bi:playstation"></iconify-icon>}
+                        {getPlatform("xbox") && <iconify-icon inline icon="bi:xbox"></iconify-icon>}
                         {getPlatform("nintendo-switch") && <iconify-icon inline icon="bi:nintendo-switch"></iconify-icon>}
                     </div>
                 </div>
