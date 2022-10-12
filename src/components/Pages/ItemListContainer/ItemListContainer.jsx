@@ -1,3 +1,4 @@
+import { SuperBalls } from "@uiball/loaders";
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { gFetch } from "../../../helpers/getFetch";
@@ -50,7 +51,7 @@ export const ItemListContainer = () => {
         <div>
             <section className="games-cards">
                 {
-                    loading ? <Title title="Cargando..."/> : games.map(game => (<Link key={game.id} to={`/detail/${game.id}`}><ItemCard game={game}/></Link>))
+                    loading ? <SuperBalls size={70} speed={1.4} color="#ff9f1c" /> : games.map(game => (<Link key={game.id} to={`/detail/${game.id}`}><ItemCard game={game}/></Link>))
                 }
             </section>
         </div>

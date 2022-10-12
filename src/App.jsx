@@ -6,9 +6,12 @@ import { ItemListContainer } from "./components/Pages/ItemListContainer/ItemList
 import { ItemDetailContainer } from "./components/Pages/ItemDetailContainer/ItemDetailContainer";
 
 import "./App.css";
+import { Footer } from "./components/Footer/Footer";
+import { CartContextProvider } from "./context/CartContext";
 
 function App() {
     return (
+        <CartContextProvider>
             <BrowserRouter>
                 <Navbar />
                 <Routes>
@@ -18,7 +21,9 @@ function App() {
                     <Route path="/detail/:gameId" element={<ItemDetailContainer />}/>
                     <Route path="*" element={<Navigate to='/404'/>}/>
                 </Routes>
+                <Footer />
             </BrowserRouter>
+        </CartContextProvider>
     );
 }
 

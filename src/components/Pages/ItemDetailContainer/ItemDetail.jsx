@@ -1,7 +1,14 @@
 import React from "react";
+import { useCartContext } from "../../../context/cartContext";
 import './ItemDetail.scss'
 
 export const ItemDetail = (props) =>{
+    const {addItem} = useCartContext()
+    
+    const addToCart = (quant) => {
+        addItem({...product, quant})
+    }
+
     return (
         <div className="item-detail">
             <div className="item-detail-info">

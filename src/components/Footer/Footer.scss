@@ -1,0 +1,32 @@
+@import "../sass/misc/Variables.scss";
+@import "../sass/misc/Mixins.scss";
+
+#footer{
+    height: 15rem;
+    background-color: $base;
+    color: $primary;
+    padding: 1.7rem 3.5rem;
+    margin-top: 3rem;
+    .footer-nav {
+        @include flex(default, space-between, center, default);
+        .footer-section{
+            @include flex(column, default, flex-start, default);
+            .footer-title{
+                font-size: $font-titles;
+                font-family: $font-principal;
+            }
+            .footer-item{
+                font-size: $font-base;
+                font-family: $font-text;
+                color: $primary;
+                iconify-icon{
+                    margin-right: 1rem;
+                }
+                &:hover{
+                    color: $secondary;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

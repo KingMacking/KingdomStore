@@ -2,5 +2,7 @@
 @import "../../sass/misc/Mixins.scss";
 
 .game-detail-container{
-    @include flex(default, center, center,default)
+    @include flex(default, center, center,default);
+    min-height: 51vh;
+    height: 100%;
 }

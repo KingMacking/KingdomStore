@@ -2,6 +2,7 @@
 @import "../../sass/misc/Variables.scss";
 
 .games-cards {
-    @include flex(default, space-evenly, default, wrap);
+    @include flex(default, space-evenly, center, wrap);
+    min-height: 51vh;
     height: 100%;
 }
