@@ -1,0 +1,23 @@
+import './PlatformSelection.scss'
+
+export const PlatformSelection = ({game, handlePlatformSelection}) =>{
+    const handlePlatform = (platform) =>{
+        console.log(platform)
+        handlePlatformSelection(platform)
+    }
+    return (
+        <div className="platform-selection">
+            <h2 className="platform-selection-title">Plataformas</h2>
+            <select className="form-select" aria-label="platform select" onChange={(value) => handlePlatform(value.target.value)}>
+                <option value={"default"}>Seleccionar plataforma</option>
+                {
+                    game.platforms.map((option, index) =>{
+                        return  (<option key={index} value={option.platform.slug}>
+                            {option.platform.name}
+                        </option>)
+                    })
+                }
+            </select>
+        </div>
+    )
+}

@@ -17,7 +17,7 @@ export const ItemDetailContainer = () => {
     useEffect(() =>{
         gFetch()
         .then(data => setGame(data.find(game=>{
-            return game.id == gameId
+            return game.id === parseInt(gameId)
         })))
         .finally(() => setLoading(false))
     },[gameId])

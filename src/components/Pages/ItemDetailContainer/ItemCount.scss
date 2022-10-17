@@ -1,0 +1,35 @@
+@import "../../sass/misc/Variables.scss";
+@import "../../sass/misc/Mixins.scss";
+
+.item-count {
+    width: 100%;
+    @include flex(default, space-between, center, default);
+    border-bottom: 2px solid $base-shadow;
+    padding: 0.7rem 0;
+    &-title {
+        font-family: $font-principal;
+        font-size: $font-titles;
+        margin: 0;
+    }
+    &-selector{
+        @include flex(default, space-between, center, default);
+        .item-count-value{
+            font-size: $font-medium;
+            font-family: $font-text;
+            margin-right: 1rem;
+        }
+        .item-count-btns{
+            @include flex(column, center, center, default);
+            .btn-count{
+                @include flex(default, center, center, default);
+                padding: 0;
+                margin: 0;
+                border-radius: 50%;
+                min-width: 1.5rem;
+                min-height: 1.5rem;
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+    }
+}
