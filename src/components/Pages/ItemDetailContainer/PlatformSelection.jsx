@@ -2,7 +2,6 @@ import './PlatformSelection.scss'
 
 export const PlatformSelection = ({game, handlePlatformSelection}) =>{
     const handlePlatform = (platform) =>{
-        console.log(platform)
         handlePlatformSelection(platform)
     }
     return (

@@ -1,0 +1,43 @@
+@import "../sass/misc/Variables.scss";
+@import "../sass/misc/Mixins.scss";
+
+.cart-widget {
+    width: 10%;
+    @include flex (default, flex-end, center, default);
+    position: relative;
+    .cart-icon{
+        @include flex (default, center, center, default);
+        padding: 0.8em;
+        border-radius: 50%;
+        border: $secondary solid 2px;
+        transition: all 150ms ease-in;
+        &:hover{
+            transition: all 150ms ease-in;
+            background-color: $secondary;
+            iconify-icon{
+                transition: all 150ms ease-in;
+                color: $base;
+            }
+            .cart-counter{
+                transition: all 150ms ease-in;
+                color: $primary;
+            }
+        }
+        iconify-icon{
+            transition: all 150ms ease-in;
+            color: $primary;
+            font-size: 2.1rem;
+        }
+        .cart-counter{
+            transition: all 150ms ease-in;
+            position: absolute;
+            top: 47%;
+            right: 2.7%;
+            transform: translate(-50%, -50%);
+            width: 2rem;
+            color: $base;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    }
+}

@@ -4,7 +4,7 @@
 .item-count {
     width: 100%;
     @include flex(default, space-between, center, default);
-    border-bottom: 2px solid $base-shadow;
+    border-bottom: 2px solid $base;
     padding: 0.7rem 0;
     &-title {
         font-family: $font-principal;

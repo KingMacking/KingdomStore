@@ -3,8 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CartWidget } from "./CartWidget";
 
-import "./NavBar.scss"
 import kingdomLogo from '../../assets/logo-full.svg'
+import "./NavBar.scss"
 
 export const Navbar = () => {
     return (
@@ -38,8 +38,8 @@ export const Navbar = () => {
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <iconify-icon inline icon="bi:playstation"></iconify-icon>
-                                Playstation
+                                    <iconify-icon inline icon="bi:playstation"></iconify-icon>
+                                    Playstation
                                 </a>
                                 <div className="dropdown-menu">
                                         <div className="dropdown-submenu">
@@ -56,8 +56,8 @@ export const Navbar = () => {
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <iconify-icon inline icon="bi:xbox"></iconify-icon>
-                                Xbox
+                                    <iconify-icon inline icon="bi:xbox"></iconify-icon>
+                                    Xbox
                                 </a>
                                 <div className="dropdown-menu">
                                     <div className="dropdown-submenu">
@@ -74,8 +74,8 @@ export const Navbar = () => {
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <iconify-icon inline icon="bi:nintendo-switch"></iconify-icon>
-                                Nintendo
+                                    <iconify-icon inline icon="bi:nintendo-switch"></iconify-icon>
+                                    Nintendo
                                 </a>
                                 <div className="dropdown-menu">
                                     <div className="dropdown-submenu">

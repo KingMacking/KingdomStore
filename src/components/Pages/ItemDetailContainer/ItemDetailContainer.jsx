@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { gFetch } from "../../../helpers/getFetch";
 import { ItemDetail } from "./ItemDetail";
 import { SuperBalls } from '@uiball/loaders'
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 import './ItemDetailContainer.scss'
 
 
@@ -15,12 +15,12 @@ export const ItemDetailContainer = () => {
     const {gameId} = useParams()
 
     useEffect(() =>{
-        gFetch()
-        .then(data => setGame(data.find(game=>{
-            return game.id === parseInt(gameId)
-        })))
+        const db = getFirestore()
+        const queryDoc = doc(db, 'games', gameId)
+        getDoc(queryDoc)
+        .then(resp => setGame({id: resp.id, ...resp.data()}))
         .finally(() => setLoading(false))
-    },[gameId])
+    },[])
 
     return (
         <div className="game-detail-container">

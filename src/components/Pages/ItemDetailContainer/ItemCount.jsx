@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import './ItemCount.scss'
 
-export const ItemCount = ({stock, init, addToCart}) => {
+export const ItemCount = ({stock, init, addToCart, platform, store}) => {
     const [count, setCount] = useState(init);
 
     const handleAdd = () => {
@@ -24,26 +24,23 @@ export const ItemCount = ({stock, init, addToCart}) => {
                 <div className="item-count-selector">
                     <span className="item-count-value">{count}</span>
                     <div className="item-count-btns">
-                        {(count === 1) ? 
+                        {
+
+
                             <>
-                                <button className="btn btn-count" onClick={() => handleAdd()}>+</button>
-                                <button className="btn btn-count disabled" onClick={() => handleRemove()}>-</button>
-                            </>
-                            : (count === stock) ?
-                            <>
-                                <button className="btn btn-count disabled" onClick={() => handleAdd()}>+</button>
-                                <button className="btn btn-count" onClick={() => handleRemove()}>-</button>
-                            </>
-                            :
-                            <>
-                                <button className="btn btn-count" onClick={() => handleAdd()}>+</button>
-                                <button className="btn btn-count" onClick={() => handleRemove()}>-</button>
+                                <button className={"btn btn-count"+ (count === stock && "disabled")} onClick={() => handleAdd()}>+</button>
+                                <button className={"btn btn-count"+(count === 1 && "disabled")} onClick={() => handleRemove()}>-</button>
                             </>
                         }
                     </div>
                 </div>
             </div>
-            <button className="btn item-btn" onClick={handleAddToCart}>Añadir al carrito</button>
+            {platform ?
+                platform === "pc" ?
+                    store ? <button className="btn item-btn" onClick={handleAddToCart}>Añadir al carrito</button>
+                    :   <button className="btn item-btn disabled" onClick={handleAddToCart}>Añadir al carrito</button>
+                : <button className="btn item-btn" onClick={handleAddToCart}>Añadir al carrito</button>
+            : <button className="btn item-btn disabled" onClick={handleAddToCart}>Añadir al carrito</button>}
         </>
     )
 }
