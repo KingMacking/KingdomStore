@@ -9,7 +9,6 @@
     border: none;
     background-color: $base;
     overflow: hidden;
-    cursor: pointer;
     box-shadow: 9px 6px 9px 0px rgba(0,0,0,0.4);
     transition: all 200ms ease-in;
     &:hover{
@@ -66,7 +65,7 @@
             color: $secondary;
             border: $secondary 2px solid;
             transition: all 150ms ease-in;
-            width: 65%;
+            width: 100%;
             font-family: $font-principal;
             &:hover{
                 color: $primary;

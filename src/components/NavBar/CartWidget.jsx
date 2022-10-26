@@ -1,9 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../context/CartContext";
+
+import './CartWidget.scss'
+
 export const CartWidget = () => {
+    const {cartQuant} = useCartContext()
     return (
         <Link to="/cart" className="cart-widget">
-            <iconify-icon inline icon="eva:shopping-cart-fill"></iconify-icon>
+            <div className="cart-icon">
+                <iconify-icon inline icon="eva:shopping-cart-fill"></iconify-icon>
+                {cartQuant > 0 && <span className="cart-counter">{cartQuant}</span>}
+            </div>
         </Link>
     )
 }

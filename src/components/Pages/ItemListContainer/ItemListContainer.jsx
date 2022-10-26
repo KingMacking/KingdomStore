@@ -1,20 +1,17 @@
 import { SuperBalls } from "@uiball/loaders";
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { gFetch } from "../../../helpers/getFetch";
+import { useParams } from "react-router-dom";
 import { ItemCard } from "./ItemCard";
+import { collection, getDocs, getFirestore} from "firebase/firestore";
 
 import "./ItemListContainer.scss"
-const Title = prop => <h1>{prop.title}</h1>
 
 export const ItemListContainer = () => {
     const [games, setGames] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const {categoryId} = useParams()
-    console.log(categoryId)
     const {storeId} = useParams()
-    console.log(storeId);
 
     const filterCategory = (gamesData) => {
         return gamesData.filter(game => game.platforms.find(plat => {
@@ -23,35 +20,33 @@ export const ItemListContainer = () => {
     }
 
     const filterStore = (gamesData) => {
-        return gamesData.filter(game => game.stores.find(plat => {
-            return plat.store.slug.includes(storeId)
+        return gamesData.filter(game => game.stores.find(sto => {
+            return sto.store.slug.includes(storeId)
         }))
+        
     }
     
     useEffect(() =>{
-        if (categoryId){
-            if (storeId){
-                gFetch()
-                .then(data => setGames(filterStore(filterCategory(data))))
-                .finally(() => setLoading(false))
-            } else {
-                gFetch()
-                .then(data => setGames(filterCategory(data)))
-                .finally(() => setLoading(false))
-            }
-        } else {
-            gFetch()
-            .then(data=>setGames(data))
-            .finally(() => setLoading(false))
-        }
-        
+        const db = getFirestore()
+        const queryCollection = collection(db, 'games')
+        getDocs(queryCollection)
+        .then(
+            categoryId ?
+                storeId ?
+                    data => setGames(filterStore(filterCategory(data.docs.map(prod => ({id: prod.id, ...prod.data()})))))
+                    :
+                    data => setGames(filterCategory(data.docs.map(prod => ({id: prod.id, ...prod.data()}))))
+                :
+                data => setGames(data.docs.map(prod=> ({id: prod.id, ...prod.data()})))
+        )
+        .finally(() => setLoading(false))
     },[categoryId, storeId])
     
     return (
         <div>
             <section className="games-cards">
                 {
-                    loading ? <SuperBalls size={70} speed={1.4} color="#ff9f1c" /> : games.map(game => (<Link key={game.id} to={`/detail/${game.id}`}><ItemCard game={game}/></Link>))
+                    loading ? <SuperBalls size={70} speed={1.4} color="#ff9f1c" /> : games.map(game => (<ItemCard key={game.id} game={game}/>))
                 }
             </section>
         </div>

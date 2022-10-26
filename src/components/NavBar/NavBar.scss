@@ -9,7 +9,7 @@
         background-color: $base;
         color: $primary;
         font-size: 2.2em;
-        padding: 0 5rem;
+        padding: 0 11rem;
         .container-fluid {
             height: 100%;
             .navbar-brand{
@@ -118,22 +118,6 @@
                                 }
                             }
                         }
-                    }
-                }
-            }
-            .cart-widget {
-                width: 10%;
-                @include flex (default, center, center, default);
-                iconify-icon{
-                    padding: 0.7em;
-                    border-radius: 50%;
-                    border: $secondary solid 2px;
-                    transition: all 150ms ease-in;
-                    &:hover{
-                        cursor: pointer;
-                        background-color: $secondary;
-                        border: none;
-                        transition: all 150ms ease-in;
                     }
                 }
             }

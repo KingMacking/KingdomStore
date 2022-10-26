@@ -1,0 +1,77 @@
+@import "../../sass/misc/Variables.scss";
+@import "../../sass/misc/Mixins.scss";
+
+.cart-container {
+    width: 80rem;
+    height: auto;
+    padding: 2rem;
+    border-radius: 3rem;
+    background-color: $base;
+    color: $primary;
+    box-shadow: 9px 6px 9px 0px rgba(0,0,0,0.4);
+    margin: 0 auto;
+    @include flex(column, space-between, flex-start, default);
+    .cart-title {
+        text-align: start;
+        font-size: $font-big-titles;
+        font-family: $font-principal;
+        width: 100%;
+        border-bottom: 2px solid $base-shadow;
+        padding: 1rem;
+    }
+    .cart-detail {
+        @include flex(default, default, flex-start, default);
+        width: 100%;
+        .cart-items {
+            @include flex(column, space-between, flex-start, default);
+            width: 70%;
+            .btn {
+                background-color: transparent;
+                color: $secondary;
+                border: $secondary 2px solid;
+                transition: all 150ms ease-in;
+                width: auto;
+                font-family: $font-principal;
+                &:hover{
+                    color: $primary;
+                    background-color: $secondary;
+                    transition: all 150ms ease-in;
+                }
+            }
+        }
+        .cart-info{
+            width: 30%;
+            box-shadow: 9px 6px 9px 0px rgba(0,0,0,0.4);
+            padding: 0 2rem;
+            border-radius: 2rem;
+            background-color: $base-shadow;
+            text-align: start;
+            &-title{
+                font-family: $font-principal;
+                font-size: $font-titles;
+                border-bottom: $base 2px solid;
+                padding: 0.5rem 0;
+                margin-bottom: 1rem;
+            }
+            &-detail {
+                .cart-info-data{
+                    font-family: $font-text;
+                    font-size: $font-base;
+                }
+                .cart-info-offer{
+                    font-family: $font-titles;
+                    font-size: $font-base;
+                    color: $secondary;
+                }
+                .cart-info-total{
+                    font-family: $font-titles;
+                    font-size: $font-medium;
+                    padding: 1rem 0;
+                    width: 100%;
+                    border-top: 2px solid $secondary;
+                }
+            }
+        }
+    }
+    
+}

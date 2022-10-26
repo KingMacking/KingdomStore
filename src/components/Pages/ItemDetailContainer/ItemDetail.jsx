@@ -1,18 +1,22 @@
 import { useState } from "react";
-import { useCartContext } from "../../../context/cartContext";
+import { useCartContext } from "../../../context/CartContext";
 import { ItemCount } from "./ItemCount";
 import { PlatformSelection } from "./PlatformSelection";
 import { StoreSelection } from "./StoreSelection";
-
+import { Link } from "react-router-dom";
 import './ItemDetail.scss'
 
 export const ItemDetail = ({game}) =>{
     const {addItem} = useCartContext()
     const [platform, setPlatform] = useState("")
     const [store, setStore] = useState("")
+    const [isCount ,setIsCount] = useState(true)
+    
     
     const addToCart = (quant) => {
-        addItem({...game, quant, platform, store})
+        let item = {...game, quant, platform, store}
+        addItem(item)
+        setIsCount(false)
     }
 
     return (
@@ -37,9 +41,23 @@ export const ItemDetail = ({game}) =>{
                 </div>
             </div>
             <div className="item-detail-buy">
-                <PlatformSelection game={game} handlePlatformSelection={setPlatform}/>
-                <StoreSelection game={game} platform={platform} handleStoreSelection={setStore}/>
-                <ItemCount addToCart={addToCart} stock={game.stock} init={1}/>
+                {
+                    isCount ?
+                        <>
+                            <PlatformSelection game={game} handlePlatformSelection={setPlatform}/>
+                            <StoreSelection game={game} platform={platform} handleStoreSelection={setStore}/>
+                            <ItemCount platform={platform} store={store} addToCart={addToCart} stock={game.stock} init={1}/>
+                        </>
+                    :
+                    <div className="item-detail-btn-group">
+                        <Link to="/cart">
+                            <button className="btn item-btn">Terminar compra</button>
+                        </Link>
+                        <Link to="/">
+                            <button className="btn item-btn">Seguir comprando</button>
+                        </Link>
+                    </div>
+                }
             </div>
         </div>
     )

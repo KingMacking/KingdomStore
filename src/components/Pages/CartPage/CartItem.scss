@@ -1,0 +1,46 @@
+@import "../../sass/misc/Variables.scss";
+@import "../../sass/misc/Mixins.scss";
+
+.cart-item {
+    width: 100%;
+    @include flex(default, space-between, center, default);
+    border-bottom: 2px solid $base-shadow;
+    padding-right: 1.5rem;
+    &-detail{
+        @include flex(default, default, default, default);
+        height: 14rem;
+        padding: 2rem 0;
+        .cart-item-img {
+            height: 16em;
+            width: 29em;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%
+            }
+        }
+        .cart-item-info {
+            @include flex(column, space-between, flex-start, default);
+            margin: 0 4rem 0 2rem;
+            height: 100%;
+            .cart-item-title {
+                font-size: $font-titles;
+                font-family: $font-principal;
+            }
+            .cart-item-data {
+                font-size: $font-base;
+                span {
+                    iconify-icon {
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+            .platform {
+                margin-right: 2rem;
+            }
+            .cart-item-price {
+                font-size: $font-base;
+            }
+        }
+    }
+}

@@ -2,7 +2,6 @@ import './StoreSelection.scss'
 
 export const StoreSelection = ({platform, handleStoreSelection, game}) => {
     const handleStore = (store) =>{
-        console.log(store)
         handleStoreSelection(store)
     }
     const pcStores = ["steam", "gog", "epic-games" ]
