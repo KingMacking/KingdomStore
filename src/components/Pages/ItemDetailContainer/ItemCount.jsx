@@ -25,22 +25,15 @@ export const ItemCount = ({stock, init, addToCart, platform, store}) => {
                     <span className="item-count-value">{count}</span>
                     <div className="item-count-btns">
                         {
-
-
                             <>
-                                <button className={"btn btn-count"+ (count === stock && "disabled")} onClick={() => handleAdd()}>+</button>
-                                <button className={"btn btn-count"+(count === 1 && "disabled")} onClick={() => handleRemove()}>-</button>
+                                <button className={"btn btn-count "+ (count === stock && "disabled")} onClick={() => handleAdd()}>+</button>
+                                <button className={"btn btn-count "+(count === 1 && "disabled")} onClick={() => handleRemove()}>-</button>
                             </>
                         }
                     </div>
                 </div>
             </div>
-            {platform ?
-                platform === "pc" ?
-                    store ? <button className="btn item-btn" onClick={handleAddToCart}>Añadir al carrito</button>
-                    :   <button className="btn item-btn disabled" onClick={handleAddToCart}>Añadir al carrito</button>
-                : <button className="btn item-btn" onClick={handleAddToCart}>Añadir al carrito</button>
-            : <button className="btn item-btn disabled" onClick={handleAddToCart}>Añadir al carrito</button>}
+            <button className={(platform && platform !== "pc" || (platform && (platform === "pc" && store))) ? "btn item-btn" : "btn item-btn disabled"} onClick={handleAddToCart}>Añadir al carrito</button>
         </>
     )
 }

@@ -8,7 +8,7 @@ export const PlatformSelection = ({game, handlePlatformSelection}) =>{
         <div className="platform-selection">
             <h2 className="platform-selection-title">Plataformas</h2>
             <select className="form-select" aria-label="platform select" onChange={(value) => handlePlatform(value.target.value)}>
-                <option value={"default"}>Seleccionar plataforma</option>
+                <option value={""}>Seleccionar plataforma</option>
                 {
                     game.platforms.map((option, index) =>{
                         return  (<option key={index} value={option.platform.slug}>

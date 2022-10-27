@@ -14,9 +14,9 @@ export const ItemDetailContainer = () => {
 
     const {gameId} = useParams()
 
+    const db = getFirestore()
+    const queryDoc = doc(db, 'games', gameId)
     useEffect(() =>{
-        const db = getFirestore()
-        const queryDoc = doc(db, 'games', gameId)
         getDoc(queryDoc)
         .then(resp => setGame({id: resp.id, ...resp.data()}))
         .finally(() => setLoading(false))
