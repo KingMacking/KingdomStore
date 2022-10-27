@@ -1,6 +1,18 @@
 @import "../../sass/misc/Variables.scss";
 @import "../../sass/misc/Mixins.scss";
-
+.btn {
+    background-color: transparent;
+    color: $secondary;
+    border: $secondary 2px solid;
+    transition: all 150ms ease-in;
+    width: auto;
+    font-family: $font-principal;
+    &:hover{
+        color: $primary;
+        background-color: $secondary;
+        transition: all 150ms ease-in;
+    }
+}
 .cart-container {
     width: 80rem;
     height: auto;
@@ -25,19 +37,7 @@
         .cart-items {
             @include flex(column, space-between, flex-start, default);
             width: 70%;
-            .btn {
-                background-color: transparent;
-                color: $secondary;
-                border: $secondary 2px solid;
-                transition: all 150ms ease-in;
-                width: auto;
-                font-family: $font-principal;
-                &:hover{
-                    color: $primary;
-                    background-color: $secondary;
-                    transition: all 150ms ease-in;
-                }
-            }
+            
         }
         .cart-info{
             width: 30%;

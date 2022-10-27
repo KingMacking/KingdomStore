@@ -10,7 +10,7 @@ export const StoreSelection = ({platform, handleStoreSelection, game}) => {
         <div className="store-selection">
             <h2 className="store-selection-title">Tienda</h2>
             <select className="form-select" aria-label="store select" onChange={(value) => handleStore(value.target.value)}>
-                <option value={"default"}>Seleccionar tienda</option>
+                <option value={""}>Seleccionar tienda</option>
                 {
                     game.stores.map((option, index) => {
                         return (

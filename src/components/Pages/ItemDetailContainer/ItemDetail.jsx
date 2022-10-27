@@ -35,7 +35,7 @@ export const ItemDetail = ({game}) =>{
                         </>
                         :
                         <div>
-                                <span className="item-price">${game.price}</span>
+                            <span className="item-price">${game.price}</span>
                         </div>
                     }
                 </div>

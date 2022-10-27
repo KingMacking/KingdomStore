@@ -25,19 +25,23 @@ export const ItemListContainer = () => {
         }))
         
     }
+
+    const db = getFirestore()
+    const queryCollection = collection(db, 'games')
     
     useEffect(() =>{
-        const db = getFirestore()
-        const queryCollection = collection(db, 'games')
         getDocs(queryCollection)
-        .then(
-            categoryId ?
-                storeId ?
-                    data => setGames(filterStore(filterCategory(data.docs.map(prod => ({id: prod.id, ...prod.data()})))))
-                    :
-                    data => setGames(filterCategory(data.docs.map(prod => ({id: prod.id, ...prod.data()}))))
-                :
-                data => setGames(data.docs.map(prod=> ({id: prod.id, ...prod.data()})))
+        .then((res) => {
+                if (categoryId) {
+                    if (storeId) { 
+                        setGames(filterStore(filterCategory(res.docs.map(prod => ({id: prod.id, ...prod.data()})))))
+                    } else { 
+                        setGames(filterCategory(res.docs.map(prod => ({id: prod.id, ...prod.data()}))))
+                    }
+                } else { 
+                    setGames(res.docs.map(prod=> ({id: prod.id, ...prod.data()})))
+                }
+            }
         )
         .finally(() => setLoading(false))
     },[categoryId, storeId])
