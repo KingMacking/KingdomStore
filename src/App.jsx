@@ -7,8 +7,11 @@ import { ItemDetailContainer } from "./components/Pages/ItemDetailContainer/Item
 import { CartContextProvider } from "./context/CartContext";
 import { CartPage } from "./components/Pages/CartPage/CartPage";
 import { Footer } from "./components/Footer/Footer";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 import "./App.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (
@@ -25,6 +28,7 @@ function App() {
                 </Routes>
                 <Footer />
             </BrowserRouter>
+            <ToastContainer />
         </CartContextProvider>
     );
 }
