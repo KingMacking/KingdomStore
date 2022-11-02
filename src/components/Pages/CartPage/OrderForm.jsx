@@ -1,5 +1,4 @@
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from 'firebase/firestore'
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Ring } from '@uiball/loaders'
@@ -16,24 +15,21 @@ const generateOrderSchema = yup.object()
         confirmEmail: yup.string().oneOf([yup.ref('email'), null], "Los emails deben coincidir").required("Los emails deben coincidir")
     })
 
-export const OrderForm = ({cartList, emptyCart, cartTotalPrice, cartQuant}) => {
-    const[dataForm, setDataForm] = useState({})
+export const OrderForm = ({cartList, emptyCart, cartTotalPrice, cartQuant, handleOrderId}) => {
 
     const {register, handleSubmit, formState: { errors }} = useForm( {resolver: yupResolver(generateOrderSchema)});
-
-    
 
     const db = getFirestore()
     const orders = collection(db, 'orders')
     const queryCollection = collection(db, 'games')
 
-    const generateOrder = async () => {
+    const generateOrder = async (buyerData) => {
         const order = {}
 
         order.buyer = {
-            name: dataForm.name,
-            phone: dataForm.phone,
-            email: dataForm.email
+            name: buyerData.name,
+            phone: buyerData.phone,
+            email: buyerData.email
         }
 
         order.items = cartList.map(prod => {
@@ -46,8 +42,6 @@ export const OrderForm = ({cartList, emptyCart, cartTotalPrice, cartQuant}) => {
 
         order.date = new Date().toLocaleDateString()
 
-        
-
         const queryUpdateStock = query(queryCollection, where(documentId(), 'in', cartList.map(item => item.id)))
 
         const batch = writeBatch(db)
@@ -59,6 +53,7 @@ export const OrderForm = ({cartList, emptyCart, cartTotalPrice, cartQuant}) => {
         batch.commit()
 
         await addDoc(orders, order)
+        .then(resp => handleOrderId(resp.id))
         .finally(emptyCart)
 
         toast.success('Compra finalizada', {
@@ -73,25 +68,26 @@ export const OrderForm = ({cartList, emptyCart, cartTotalPrice, cartQuant}) => {
         })
     }
 
+    const onSubmit = (data) => {
+        toast.info('Generando orden', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+            icon: <Ring size={40} lineWeight={5} speed={2}  color="white" />
+        })
+        generateOrder(data)
+    }
+
     return (
         <div>
             <h2 className='form-title'>Formulario de compra</h2>
             <div className='form-detail'>
-                <form className='form-buy' onSubmit={handleSubmit((data) => {
-                    setDataForm({...data})
-                    generateOrder()
-                    toast.info('Generando orden', {
-                        position: "top-right",
-                        autoClose: 2000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: false,
-                        progress: undefined,
-                        theme: "dark",
-                        icon: <Ring size={40} lineWeight={5} speed={2}  color="white" />
-                    })
-                })} >
+                <form className='form-buy' onSubmit={handleSubmit(onSubmit)} >
                     <div>
                         <input className='form-buy-input' type="text" {...register("name")} placeholder="Nombre completo"/>
                         {errors.name && <p className='form-error'>{errors.name.message}</p>}

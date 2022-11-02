@@ -1,0 +1,54 @@
+@import "../../sass/misc/Variables.scss";
+@import "../../sass/misc/Mixins.scss";
+
+.wishlist-container {
+    width: 70rem;
+    height: auto;
+    min-height: 25rem;
+    padding: 2rem;
+    border-radius: 3rem;
+    background-color: $base;
+    color: $primary;
+    box-shadow: 9px 6px 9px 0px rgba(0,0,0,0.4);
+    margin: 0 auto;
+    @include flex(column, space-between, flex-start, default);
+    .wishlist-title {
+        text-align: start;
+        font-size: $font-big-titles;
+        font-family: $font-principal;
+        width: 100%;
+        border-bottom: 2px solid $base-shadow;
+        padding: 1rem 0;
+    }
+    .wishlist-detail {
+        @include flex(default, default, flex-start, default);
+        width: 100%;
+        .wishlist-items {
+            @include flex(column, space-between, flex-start, default);
+            width: 100%;
+            .wishlist-text {
+                font-size: $font-medium;
+                font-family: $font-text;
+            }
+            .btn-empty-wishlist {
+                align-self: center;
+                margin-top: 2rem;
+                font-size: $font-medium;
+                width: 40%;
+            }
+        }
+    }
+    .btn {
+        background-color: transparent;
+        color: $secondary;
+        border: $secondary 2px solid;
+        transition: all 150ms ease-in;
+        width: auto;
+        font-family: $font-principal;
+        &:hover{
+            color: $primary;
+            background-color: $secondary;
+            transition: all 150ms ease-in;
+        }
+    }
+}

@@ -1,8 +1,9 @@
 import { useState } from "react"
+import { toast } from "react-toastify";
 
 import './ItemCount.scss'
 
-export const ItemCount = ({stock, init, addToCart, platform, store}) => {
+export const ItemCount = ({stock, init, addToCart, platform, store, addToWishlist}) => {
     const [count, setCount] = useState(init);
 
     const handleAdd = () => {
@@ -15,6 +16,30 @@ export const ItemCount = ({stock, init, addToCart, platform, store}) => {
 
     const handleAddToCart = () => {
         addToCart(count)
+        toast.success('Producto agregado al carrito', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+        })
+    }
+
+    const handleAddToWishlist = () => {
+        addToWishlist(count)
+        toast.success('Producto agregado a la wishlist', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+        })
     }
 
     return (
@@ -34,6 +59,7 @@ export const ItemCount = ({stock, init, addToCart, platform, store}) => {
                 </div>
             </div>
             <button className={(platform && platform !== "pc" || (platform && (platform === "pc" && store))) ? "btn item-btn" : "btn item-btn disabled"} onClick={handleAddToCart}>Añadir al carrito</button>
+            <button className={(platform && platform !== "pc" || (platform && (platform === "pc" && store))) ? "btn item-btn" : "btn item-btn disabled"} onClick={handleAddToWishlist}>Añadir a la wishlist</button>
         </>
     )
 }
