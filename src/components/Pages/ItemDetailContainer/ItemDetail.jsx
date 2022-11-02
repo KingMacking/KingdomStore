@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCartContext } from "../../../context/CartContext";
+import { useWishlistContext } from "../../../context/WishlistContext";
 import { ItemCount } from "./ItemCount";
 import { PlatformSelection } from "./PlatformSelection";
 import { StoreSelection } from "./StoreSelection";
@@ -8,6 +9,7 @@ import './ItemDetail.scss'
 
 export const ItemDetail = ({game}) =>{
     const {addItem} = useCartContext()
+    const {addItemWl} = useWishlistContext()
     const [platform, setPlatform] = useState("")
     const [store, setStore] = useState("")
     const [isCount ,setIsCount] = useState(true)
@@ -16,7 +18,13 @@ export const ItemDetail = ({game}) =>{
     const addToCart = (quant) => {
         let item = {...game, quant, platform, store}
         addItem(item)
-        setIsCount(false)
+        setIsCount('cart')
+    }
+
+    const addToWishlist = (quant) => {
+        let item = {...game, quant, platform, store}
+        addItemWl(item)
+        setIsCount('wishlist')
     }
 
     return (
@@ -42,19 +50,19 @@ export const ItemDetail = ({game}) =>{
             </div>
             <div className="item-detail-buy">
                 {
-                    isCount ?
+                    isCount === true ?
                         <>
                             <PlatformSelection game={game} handlePlatformSelection={setPlatform}/>
                             <StoreSelection game={game} platform={platform} handleStoreSelection={setStore}/>
-                            <ItemCount platform={platform} store={store} addToCart={addToCart} stock={game.stock} init={1}/>
+                            <ItemCount platform={platform} store={store} addToCart={addToCart} stock={game.stock} addToWishlist={addToWishlist} init={1}/>
                         </>
                     :
                     <div className="item-detail-btn-group">
-                        <Link to="/cart">
-                            <button className="btn item-btn">Terminar compra</button>
+                        <Link to={isCount === 'cart' && "/cart" || isCount === 'wishlist' && "/wishlist"}>
+                            <button className="btn item-btn">{isCount === 'cart' && "Terminar compra" || isCount === 'wishlist' && "Ir a la wishlist"}</button>
                         </Link>
                         <Link to="/">
-                            <button className="btn item-btn">Seguir comprando</button>
+                            <button className="btn item-btn">Ir a inicio</button>
                         </Link>
                     </div>
                 }

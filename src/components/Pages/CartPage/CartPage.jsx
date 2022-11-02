@@ -1,12 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../../context/CartContext";
 import { CartItem } from "./CartItem";
+import { Checkout } from "./Checkout";
+import { OrderForm } from "./OrderForm";
 
 import './CartPage.scss'
-import { OrderForm } from "./OrderForm";
 
 export const CartPage = () => {
     const {cartList, emptyCart, removeItem, cartTotalPrice, cartQuant} = useCartContext()
+    const [orderId, setOrderId] = useState('')
+
     return (
         <>
             <div className="cart-container">
@@ -28,10 +32,13 @@ export const CartPage = () => {
                     </div>
                 </div>
             </div>
-            {cartList.length > 0 &&
-                <div className="form-container">
-                    <OrderForm cartList={cartList} emptyCart={emptyCart} cartTotalPrice={cartTotalPrice} cartQuant={cartQuant}/>
-                </div>
+            {orderId ?
+                <Checkout orderId={orderId}/>
+                :
+                cartList.length > 0 &&
+                    <div className="form-container">
+                        <OrderForm cartList={cartList} emptyCart={emptyCart} cartTotalPrice={cartTotalPrice} cartQuant={cartQuant} handleOrderId={setOrderId}/>
+                    </div>
             }
         </>
     )

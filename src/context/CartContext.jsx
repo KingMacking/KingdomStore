@@ -59,12 +59,12 @@ export const CartContextProvider = ({children}) => {
             ))
     }
 
-    const removeItem = (id) => {
-        setCartList(cartList.filter(item => cartList.indexOf(item) !== id))
+    const removeItem = (index) => {
+        setCartList(cartList.filter(item => cartList.indexOf(item) !== index))
     }
 
     return(
-        <CartContext.Provider value={{cartList, cartTotalPrice, cartQuant, addItem, emptyCart, removeItem}}>
+        <CartContext.Provider value={{cartList, cartTotalPrice, cartQuant, addItem, emptyCart, removeItem, setCartList}}>
             {children}
         </CartContext.Provider>
     )

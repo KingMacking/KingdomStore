@@ -64,8 +64,16 @@
                 transition: all 150ms ease-in;
             }
         }
-        .item-btn{
-            margin-top: 2rem;
+        .item-btn {
+            margin-top: 1rem;
+        }
+        .item-detail-btn-group {
+            @include flex(column, space-between, center, default);
+            height: 7rem;
+            .btn {
+                margin-top: 0;
+                width: 12rem;
+            }
         }
     }
 }
