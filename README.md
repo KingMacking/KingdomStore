@@ -11,7 +11,7 @@
 
 ## Games keys store
 
-Kingdom store es una tienda donde podras encontrar gran cantidad de keys(códigos) de juegos para
+Kingdom Store es una tienda donde podras encontrar gran cantidad de keys(códigos) de juegos para
 las distintas plataformas existentes.
 
 - Encuentra tu juego 🔍
@@ -48,7 +48,7 @@ buscarla cuando lo desees para ver información de la misma como la fecha en la 
 - [react-router-dom] - Creacion de rutas dentro de una misma app, util para una navegacion dentro del sitio sin necesidad de recargar el mismo.
 
 
-## Installation
+## Instalación
 1. Clonar el repositorio
 ```sh
 git clone https://github.com/KingMacking/KingdomStore
