@@ -8,9 +8,15 @@
     padding: 1.7rem 3.5rem;
     margin-top: 3rem;
     .footer-nav {
-        @include flex(default, space-between, center, default);
+        @include flex(default, space-around, center, default);
+        div:nth-child(n+2){
+            border-left: 2px solid $secondary;
+            padding-left: 3rem
+        }
         .footer-section{
             @include flex(column, default, flex-start, default);
+            width: 20%;
+            height: 11rem;
             .footer-title{
                 font-size: $font-titles;
                 font-family: $font-principal;
@@ -25,6 +31,12 @@
                 &:hover{
                     color: $secondary;
                     text-decoration: underline;
+                }
+            }
+            .footer-brand {
+                margin: auto 0;
+                img {
+                    width: 100%;
                 }
             }
         }

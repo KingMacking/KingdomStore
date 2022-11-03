@@ -1,0 +1,84 @@
+@import "../../sass/misc/Variables.scss";
+@import "../../sass/misc/Mixins.scss";
+
+.order-finder-container {
+    width: 70rem;
+    min-height: 15rem;
+    height: auto;
+    padding: 2rem;
+    border-radius: 3rem;
+    background-color: $base;
+    color: $primary;
+    box-shadow: 9px 6px 9px 0px rgba(0,0,0,0.4);
+    margin: 2rem auto 1rem;
+    .order-finder-title {
+        text-align: start;
+        font-size: $font-big-titles;
+        font-family: $font-principal;
+        width: 100%;
+        border-bottom: 2px solid $base-shadow;
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+    }
+    .order-finder-form {
+        @include flex(column, space-evenly, center, default);
+        .order-finder-input{
+            background-color: $base-shadow;
+            padding: 0.5rem 0.7rem;
+            border: none;
+            border-radius: 0.7rem;
+            font-size: $font-medium;
+            font-family: $font-text;
+            width: 50%;
+            margin-bottom: 2rem;
+        }
+        .order-finder-text {
+            font-size: $font-medium;
+            font-family: $font-text;
+        }
+        .btn {
+            background-color: transparent;
+            color: $secondary;
+            border: $secondary 2px solid;
+            transition: all 150ms ease-in;
+            font-family: $font-principal;
+            width:30%;
+            align-self: center;
+            &:hover{
+                color: $primary;
+                background-color: $secondary;
+                transition: all 150ms ease-in;
+            }
+        }
+    }
+}
+.order-view {
+    width: 70rem;
+    min-height: 15rem;
+    height: auto;
+    padding: 2rem;
+    border-radius: 3rem;
+    background-color: $base;
+    color: $primary;
+    box-shadow: 9px 6px 9px 0px rgba(0,0,0,0.4);
+    margin: 4rem auto 1rem;
+    &-title {
+        text-align: start;
+        font-size: $font-big-titles;
+        font-family: $font-principal;
+        width: 100%;
+        border-bottom: 2px solid $base-shadow;
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+    }
+    &-data {
+        font-size: $font-medium;
+        font-family: $font-text;
+        text-align: start;
+    }
+}
+.loader {
+    @include flex(default, center, center, default);
+    width: 100%;
+    height: 100%;
+}

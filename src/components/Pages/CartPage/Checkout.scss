@@ -25,4 +25,23 @@
         font-size: $font-medium;
         font-family: $font-text;
     }
+    &-contact {
+        background-color: $base-shadow;
+        border-radius: 1.4rem;
+        padding: 1rem 2rem;
+        .checkout-subtitle {
+            text-align: start;
+            font-size: $font-titles;
+            font-family: $font-principal;
+            width: 100%;
+            border-bottom: 2px solid $secondary;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 0;
+        }
+    }
+    .loader {
+        @include flex(default, center, center, default);
+        width: 100%;
+        height: 100%;
+    }
 }

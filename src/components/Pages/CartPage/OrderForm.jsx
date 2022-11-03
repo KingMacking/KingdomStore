@@ -1,8 +1,8 @@
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from 'firebase/firestore'
 import { useForm } from 'react-hook-form'
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Ring } from '@uiball/loaders'
 import { toast } from 'react-toastify';
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import './OrderForm.scss'
@@ -54,25 +54,14 @@ export const OrderForm = ({cartList, emptyCart, cartTotalPrice, cartQuant, handl
 
         await addDoc(orders, order)
         .then(resp => handleOrderId(resp.id))
-        .finally(emptyCart)
-
-        toast.success('Compra finalizada', {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false,
-            progress: undefined,
-            theme: "dark",
-        })
+        // .finally(emptyCart)
     }
 
     const onSubmit = (data) => {
         toast.info('Generando orden', {
             position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
+            autoClose: 4000,
+            hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: false,
