@@ -1,8 +1,11 @@
+
+
+# [_**Kingdom Store**_](https://kingdom-store.netlify.app "Live app")
+
 <p align='center'>
     <a href="https://kingdom-store.netlify.app/"><img height="80"src="https://github.com/KingMacking/KingdomStore/blob/master/src/assets/logo-full.svg"></a>
 </p>
 
-# [_**Kingdom Store**_](https://kingdom-store.netlify.app "Live app")
 ## Games keys store
 
 Kingdom store es una tienda donde podras encontrar gran cantidad de keys(códigos) de juegos para
@@ -57,14 +60,12 @@ npm run dev
 ```
 ## Preview
 
-![Site_Preview](https://imgur.com/ttHqc0a "Site preview")
-![Site_Preview](https://imgur.com/tsUfy3X "Site preview")
-![Site_Preview](https://imgur.com/lJs13Ea "Site preview")
+![Site_Preview](https://imgur.com/ttHqc0a.png "Site preview")
+![Site_Preview](https://imgur.com/tsUfy3X.png "Site preview")
+![Site_Preview](https://imgur.com/lJs13Ea.png "Site preview")
 
 ## License
 Distribuido bajo la licencia MIT.
-
-**Free Software, Hell Yeah!**
 
    [UI Balls - Loaders]: <https://uiball.com/loaders/>
    [yup]: <https://github.com/jquense/yup>
