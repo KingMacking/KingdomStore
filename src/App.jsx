@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
 import { Navbar } from "./components/NavBar/NavBar";
 import { ItemListContainer } from "./components/Pages/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/Pages/ItemDetailContainer/ItemDetailContainer";
@@ -8,12 +7,13 @@ import { CartContextProvider } from "./context/CartContext";
 import { CartPage } from "./components/Pages/CartPage/CartPage";
 import { Footer } from "./components/Footer/Footer";
 import { ToastContainer } from 'react-toastify';
+import { WishlistContextProvider } from "./context/WishlistContext";
+import { WishlistPage } from "./components/Pages/WishlistPage/WishlistPage";
+import { OrderFinder } from "./components/Pages/OrderFinder/OrderFinder";
 
 
 import "./App.css";
 import 'react-toastify/dist/ReactToastify.css';
-import { WishlistContextProvider } from "./context/WishlistContext";
-import { WishlistPage } from "./components/Pages/WishlistPage/WishlistPage";
 
 function App() {
     return (
@@ -28,6 +28,7 @@ function App() {
                         <Route path="/detail/:gameId" element={<ItemDetailContainer />}/>
                         <Route path="/cart" element={<CartPage/>}/>
                         <Route path="/wishlist" element={<WishlistPage/>}/>
+                        <Route path="/orderfinder" element={<OrderFinder/>}/>
                         <Route path="*" element={<Navigate to='/404'/>}/>
                     </Routes>
                     <Footer />

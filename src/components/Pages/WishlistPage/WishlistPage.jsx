@@ -8,28 +8,11 @@ import './WishlistPage.scss'
 
 export const WishlistPage = () => {
     const {wishlist, emptyWishlist, removeItemWl} = useWishlistContext()
-    const {addItem, setCartList, cartList} = useCartContext()
+    const {addItem} = useCartContext()
 
     const handleEmptyWishlist = () => {
         emptyWishlist()
         toast.success('Wishlist vaciada correctamente', {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false,
-            progress: undefined,
-            theme: "dark",
-        })
-    }
-
-    const handleAddAllToCart = () => {
-        wishlist.forEach((game) => {
-            addItem(game)
-        })
-        emptyWishlist()
-        toast.success('Wishlist añadida al carrito', {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,
@@ -51,7 +34,6 @@ export const WishlistPage = () => {
                             <>
                                 {wishlist.map((product, index) => <WishlistItem key={index} product={product} handleAddToCartItem={() => addItem(product)} handleRemoveItem={() => removeItemWl(index)}/>)}
                                 <button className="btn btn-empty-wishlist" onClick={handleEmptyWishlist}>Vaciar wishlist</button>
-                                <button className="btn btn-empty-wishlist" onClick={handleAddAllToCart}>Añador todo al carrito</button>
                             </>
                                 : 
                             <>
