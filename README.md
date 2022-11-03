@@ -67,7 +67,7 @@ npm run dev
 ![Site_Preview](https://imgur.com/tsUfy3X.png "Site preview")
 ![Site_Preview](https://imgur.com/lJs13Ea.png "Site preview")
 
-## License
+## Licencia
 Distribuido bajo la licencia MIT.
 
    [UI Balls - Loaders]: <https://uiball.com/loaders/>

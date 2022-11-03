@@ -70,7 +70,7 @@ export const CartItem = ({product, handleRemoveItem}) => {
                     {product.store !== "" && <span className='cart-item-data platform'>{getStore(store)}</span>}
                     </div>
                     <span className='cart-item-data'>Cantidad: {product.quant}</span>
-                    <span className='cart-item-price'>Precio: {(product.price)-(product.price)*(product.sale)/100}</span>
+                    <span className='cart-item-price'>Precio: ${(product.price)-(product.price)*(product.sale)/100}</span>
                 </div>
             </div>
             <button className='btn' onClick={(index)=>handleRemove(index)}><iconify-icon inline icon="bi:trash-fill"></iconify-icon></button>
