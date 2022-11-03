@@ -5,7 +5,7 @@
 <p align='center'>
     Visualiza la app haciendo click en la imagen!
 </p>
-<p>
+<p align='center'>
     <a href="https://kingdom-store.netlify.app/"><img height="80"src="https://github.com/KingMacking/KingdomStore/blob/master/src/assets/logo-full.svg"></a>
 </p>
 
