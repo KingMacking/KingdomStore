@@ -3,6 +3,7 @@
 # [_**Kingdom Store**_](https://kingdom-store.netlify.app "Live app")
 
 <p align='center'>
+    Visualiza la app haciendo click en la imagen!
     <a href="https://kingdom-store.netlify.app/"><img height="80"src="https://github.com/KingMacking/KingdomStore/blob/master/src/assets/logo-full.svg"></a>
 </p>
 
