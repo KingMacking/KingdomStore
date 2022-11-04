@@ -24,11 +24,11 @@ export const OrderFinder = () => {
         setIsLoading(true)
         getOrderData(data.id)
         toast.info('Buscando orden', {
-            position: "top-right",
+            position: "bottom-right",
             autoClose: 2500,
             hideProgressBar: true,
             closeOnClick: true,
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: false,
             progress: undefined,
             theme: "dark",
@@ -43,11 +43,11 @@ export const OrderFinder = () => {
             if (resp.data()) {
                 setOrderData({id: resp.id, ...resp.data()})
                 toast.success('Orden encontrada', {
-                    position: "top-right",
+                    position: "bottom-right",
                     autoClose: 2500,
                     hideProgressBar: false,
                     closeOnClick: true,
-                    pauseOnHover: true,
+                    pauseOnHover: false,
                     draggable: false,
                     progress: undefined,
                     theme: "dark",
@@ -56,11 +56,11 @@ export const OrderFinder = () => {
             } else {
                 setOrderData({id: resp.id, ...resp.data()})
                 toast.error('Orden inexistente, comprueba el ID', {
-                    position: "top-right",
+                    position: "bottom-right",
                     autoClose: 2000,
                     hideProgressBar: false,
                     closeOnClick: true,
-                    pauseOnHover: true,
+                    pauseOnHover: false,
                     draggable: false,
                     progress: undefined,
                     theme: "dark",

@@ -17,11 +17,11 @@ export const ItemCount = ({stock, init, addToCart, platform, store, addToWishlis
     const handleAddToCart = () => {
         addToCart(count)
         toast.success('Producto agregado al carrito', {
-            position: "top-right",
+            position: "bottom-right",
             autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: false,
             progress: undefined,
             theme: "dark",
@@ -31,11 +31,11 @@ export const ItemCount = ({stock, init, addToCart, platform, store, addToWishlis
     const handleAddToWishlist = () => {
         addToWishlist(count)
         toast.success('Producto agregado a la wishlist', {
-            position: "top-right",
+            position: "bottom-right",
             autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: false,
             progress: undefined,
             theme: "dark",

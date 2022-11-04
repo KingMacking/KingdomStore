@@ -1,8 +1,19 @@
+import { toast } from 'react-toastify'
 import './CartItem.scss'
 
 export const CartItem = ({product, handleRemoveItem}) => {
     const handleRemove = (index) => {
         handleRemoveItem(index)
+        toast.success('Item eliminado correctamente', {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+        })
     }
     const platform = product.platform
     const store = product.store

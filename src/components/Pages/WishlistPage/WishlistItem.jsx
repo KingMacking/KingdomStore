@@ -9,7 +9,7 @@ export const WishlistItem = ({product, handleRemoveItem, handleAddToCartItem}) =
             autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: false,
             progress: undefined,
             theme: "dark",
@@ -20,11 +20,11 @@ export const WishlistItem = ({product, handleRemoveItem, handleAddToCartItem}) =
         handleAddToCartItem(product)
         handleRemoveItem(product)
         toast.success('Producto agregado al carrito', {
-            position: "top-right",
+            position: "bottom-right",
             autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: false,
             progress: undefined,
             theme: "dark",
