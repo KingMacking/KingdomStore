@@ -23,15 +23,15 @@ export const Checkout = ({orderId}) => {
             setTimeout(() => {
                 setIsLoading(false)
                 toast.success('Compra finalizada', {
-                    position: "top-right",
+                    position: "bottom-right",
                     autoClose: 2000,
                     hideProgressBar: false,
                     closeOnClick: true,
-                    pauseOnHover: true,
+                    pauseOnHover: false,
                     draggable: false,
                     progress: undefined,
                     theme: "dark",
-                    toastId: "buy-success",
+                    toastId: "buy-succes",
                 })
             }, 2500)
         })

@@ -13,11 +13,11 @@ export const WishlistPage = () => {
     const handleEmptyWishlist = () => {
         emptyWishlist()
         toast.success('Wishlist vaciada correctamente', {
-            position: "top-right",
+            position: "bottom-right",
             autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: false,
             progress: undefined,
             theme: "dark",

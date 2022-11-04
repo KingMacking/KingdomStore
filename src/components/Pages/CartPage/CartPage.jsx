@@ -4,6 +4,7 @@ import { useCartContext } from "../../../context/CartContext";
 import { CartItem } from "./CartItem";
 import { Checkout } from "./Checkout";
 import { OrderForm } from "./OrderForm";
+import { toast } from "react-toastify";
 
 import './CartPage.scss'
 
@@ -11,6 +12,19 @@ export const CartPage = () => {
     const {cartList, emptyCart, removeItem, cartTotalPrice, cartQuant} = useCartContext()
     const [orderId, setOrderId] = useState('')
 
+    const handelEmptyCart = () => {
+        emptyCart()
+        toast.success('Carrito vaciado correctamente', {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+        })
+    }
     return (
         <>
             <div className="cart-container">
@@ -20,7 +34,7 @@ export const CartPage = () => {
                         {cartList.length > 0 ? 
                             <>
                                 {cartList.map((product, index) => <CartItem key={index} product={product} handleRemoveItem={() => removeItem(index)}/>)}
-                                <button className="btn btn-empty-cart" onClick={emptyCart}>Vaciar carrito</button>
+                                <button className="btn btn-empty-cart" onClick={handelEmptyCart}>Vaciar carrito</button>
                             </>
                                 : 
                             <>

@@ -54,16 +54,16 @@ export const OrderForm = ({cartList, emptyCart, cartTotalPrice, cartQuant, handl
 
         await addDoc(orders, order)
         .then(resp => handleOrderId(resp.id))
-        // .finally(emptyCart)
+        .finally(emptyCart)
     }
 
     const onSubmit = (data) => {
         toast.info('Generando orden', {
-            position: "top-right",
+            position: "bottom-right",
             autoClose: 4000,
             hideProgressBar: true,
             closeOnClick: true,
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: false,
             progress: undefined,
             theme: "dark",
