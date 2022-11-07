@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import { WishlistContextProvider } from "./context/WishlistContext";
 import { WishlistPage } from "./components/Pages/WishlistPage/WishlistPage";
 import { OrderFinder } from "./components/Pages/OrderFinder/OrderFinder";
+import { NotFound } from "./components/Pages/NotFound/NotFound";
 
 
 import "./App.css";
@@ -29,7 +30,7 @@ function App() {
                         <Route path="/cart" element={<CartPage/>}/>
                         <Route path="/wishlist" element={<WishlistPage/>}/>
                         <Route path="/orderfinder" element={<OrderFinder/>}/>
-                        <Route path="*" element={<Navigate to='/404'/>}/>
+                        <Route path="*" element={<NotFound/>}/>
                     </Routes>
                     <Footer />
                 </BrowserRouter>
