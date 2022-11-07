@@ -1,0 +1,50 @@
+@import "../../sass/misc/Variables.scss";
+@import "../../sass/misc/Mixins.scss";
+
+.notfound-container {
+    width: 70rem;
+    height: auto;
+    min-height: 25rem;
+    padding: 2rem;
+    border-radius: 3rem;
+    background-color: $base;
+    color: $primary;
+    box-shadow: 9px 6px 9px 0px rgba(0,0,0,0.4);
+    margin: 0 auto;
+    @include flex(column, space-between, center, default);
+    .notfound-title{
+        text-align: center;
+        font-size: $font-big-titles;
+        font-family: $font-principal;
+        width: 100%;
+        border-bottom: 2px solid $base-shadow;
+        padding: 1rem 0;
+    }
+    .notfound-btn-group{
+        @include flex(default, center, center, default);
+        width: 70%;
+        flex-wrap: wrap;
+        background-color: $base-shadow;
+        border-radius: 2.4rem;
+        padding: 1rem 0;
+        .btn {
+            background-color: transparent;
+            color: $secondary;
+            border: $secondary 2px solid;
+            transition: all 150ms ease-in;
+            width: 12rem;
+            margin: 1rem 3rem;
+            font-family: $font-principal;
+            &:hover{
+                color: $primary;
+                background-color: $secondary;
+                transition: all 150ms ease-in;
+            }
+        }
+    }
+    .notfound-text{
+        font-size: $font-medium;
+        font-family: $font-text;
+        text-align: center;
+    }
+}
