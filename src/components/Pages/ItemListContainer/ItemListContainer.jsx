@@ -48,7 +48,7 @@ export const ItemListContainer = () => {
     
     return (
         <div>
-            <section className="games-cards">
+            <section className="games-cards container mx-auto">
                 {
                     loading ? <SuperBalls size={70} speed={1.4} color="#ff9f1c" /> : games.map(game => (<ItemCard key={game.id} game={game}/>))
                 }
